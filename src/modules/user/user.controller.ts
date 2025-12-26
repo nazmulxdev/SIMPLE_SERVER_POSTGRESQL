@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { userServices } from "./user.service";
 
 const createUser = async (req: Request, res: Response) => {
-  const { name, email, age, address, phone } = req.body;
+  const { name, email, age, address, phone, password, role } = req.body;
   try {
     const result = await userServices.createUser(
       name,
@@ -11,6 +11,8 @@ const createUser = async (req: Request, res: Response) => {
       age,
       address,
       phone,
+      password,
+      role,
     );
     console.log(result.rows[0]);
 
